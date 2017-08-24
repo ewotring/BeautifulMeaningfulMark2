@@ -1,0 +1,7 @@
+<form action="/poems/<%= @poem.id %>" method="post">
+  <input type="hidden" name="_method" value="PUT">
+  <input type="text" name="poem[name]" placeholder="<%= @poem.try(:name) %>">
+  <textarea rows=2 cols=50 name="poem[body]" placeholder="<%= @poem.try(:body) %>"></textarea>
+  <input type="submit" value="edit poem">
+</form>
+<!-- Might be good to add a hidden input for the id of the editor -->
