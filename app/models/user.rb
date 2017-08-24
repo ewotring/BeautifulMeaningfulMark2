@@ -4,3 +4,5 @@ class User < ActiveRecord::Base
   has_many :comments
   # Update schema to reflect that users create comments
 end
+
+testing words
