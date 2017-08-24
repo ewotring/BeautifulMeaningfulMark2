@@ -4,16 +4,29 @@ get '/poems' do
 end
 
 get '/poems/new' do
-  erb :'poems/new'
+  if request.xhr?
+    erb :'poems/new', layout: false
+  else
+    erb :'poems/new'
+  end
 end
 
 post '/poems' do
   @poem = Poem.new(params[:poem])
-  if @poem.save
-    redirect '/'
+  if request.xhr?
+    if @poem.save
+      erb :'poems/_index_show', layout: false, locals: {poem: @poem}
+    else
+      @errors = @poem.errors.full_messages
+      erb :'poems/new'
+    end
   else
-    @errors = @poem.errors.full_messages
-    erb :'poems/new'
+    if @poem.save
+      redirect '/'
+    else
+      @errors = @poem.errors.full_messages
+      erb :'poems/new'
+    end
   end
 end
 

@@ -1,10 +1,11 @@
-<% if logged_in? %>
-  <a href="/poems/new">Create poem</a>
-<% end %>
+<div id="new-poem-form-section">
+  <% if logged_in? %>
+    <a id="create-poem-link" href="/poems/new">Create poem</a>
+  <% end %>
+</div>
 <ul>
   <% @poems.each do |poem| %>
-    <li><p>Author: <%= poem.user.username %></p>
-      <p>Title: <a href="/poems/<%= poem.id %>"><%= poem.name %></a></p>
+    <li><%= erb :'poems/_index_show', locals: {poem: poem} %>
       <% if logged_in? && current_user == poem.user %>
         <p><a href="/poems/<%= poem.id %>/edit">Edit poem</a></p>
         <p><%= erb :'poems/_delete', locals: {poem: poem} %></p></li>
