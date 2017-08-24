@@ -1,4 +1,4 @@
-<form action="/poems" method="post">
+<form class="new-poem-form" action="/poems" method="post">
   <input type="hidden" name="poem[user_id]" value="<%= current_user.id %>">
   <input type="text" name="poem[name]" placeholder="poem name">
   <textarea rows=2 cols=50 name="poem[body]" placeholder="poem body"></textarea>
