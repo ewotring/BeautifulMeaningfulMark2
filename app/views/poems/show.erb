@@ -1,0 +1,15 @@
+<% if logged_in? && current_user == @poem.user %>
+  <p><a href="/poems/<%= @poem.id %>/edit">Edit poem</a></p>
+  <p><%= erb :'poems/_delete', locals: {poem: @poem} %></p>
+<% end %>
+<p>Author: <%= @poem.user.username %></p>
+<p>Title: <%= @poem.name %></p>
+<p>Body: <%= @poem.body %></p>
+
+<ul>
+  <% @poem.comments.each do |comment| %>
+    <li><p>Author: <%= comment.user.username %></p>
+      <p>Title: <%= comment.name %></p>
+      <p>Body: <%= comment.body %></p></li>
+  <% end %>
+</ul>
