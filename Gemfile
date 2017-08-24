@@ -22,7 +22,7 @@ group :test do
   gem 'capybara'
 end
 
+gem 'faker'
 group :test, :development do
   gem 'factory_girl'
-  gem 'faker'
 end
