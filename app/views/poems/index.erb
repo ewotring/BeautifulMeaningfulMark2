@@ -3,6 +3,10 @@
     <a id="create-poem-link" href="/poems/new">Create poem</a>
   <% end %>
 </div>
+<form action="/api" method="post">
+  <input type="text" name="word" placeholder="word">
+  <input type="submit" value="suggest word">
+</form>
 <ul id="index-container">
   <% @poems.each do |poem| %>
     <li><%= erb :'poems/_index_show', locals: {poem: poem} %>

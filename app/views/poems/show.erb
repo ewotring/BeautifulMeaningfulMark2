@@ -5,7 +5,9 @@
 <p>Author: <%= @poem.user.username %></p>
 <p>Title: <%= @poem.name %></p>
 <p>Body: <%= @poem.body %></p>
-
+<% if logged_in? %>
+  <!-- link to form through controller. nest comments under poem to get poem id into commentcontroller as param-->
+<% end %>
 <ul>
   <% @poem.comments.each do |comment| %>
     <li><p>Author: <%= comment.user.username %></p>
