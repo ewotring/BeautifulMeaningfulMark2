@@ -1,1 +1,6 @@
 body{margin:2%;}
+
+.hover{
+  color:red;
+  font-size: 200%;
+}
