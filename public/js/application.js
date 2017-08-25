@@ -48,4 +48,9 @@ $(document).ready(function() {
       $(".new-poem-form").remove();
     })
   })
+  $("#word-suggestion-form").on("submit", function(event){
+    event.preventDefault();
+    // console.log("bound");
+
+  })
 });
