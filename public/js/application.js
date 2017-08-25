@@ -4,6 +4,11 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $("#index-container").on("mouseenter mouseleave", ".author", function(event){
+    // console.log($(this));
+    $author = $(this);
+    $author.toggleClass("hover");
+  })
   $('#create-poem-link').on('click', function(event){
     event.preventDefault();
     // console.log("bound");
@@ -38,7 +43,7 @@ $(document).ready(function() {
     })
     $request.done(function(response){
       // console.log(response);
-      $("ul").append('<li>' + response);
+      $(".index-container").append('<li>' + response);
       $("#create-poem-link").show();
       $(".new-poem-form").remove();
     })
