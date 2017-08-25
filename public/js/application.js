@@ -51,6 +51,11 @@ $(document).ready(function() {
   $("#word-suggestion-form").on("submit", function(event){
     event.preventDefault();
     // console.log("bound");
-
+    $.ajax({
+      url: $(this).attr("action"),
+      method: $(this).attr("method"),
+      data: $(this).serialize()
+    })
+    $.done
   })
 });
