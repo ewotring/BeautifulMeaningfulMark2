@@ -1,0 +1,7 @@
+<form class="new_comment_form" action="/comments" method="post">
+  <input type="hidden" name="comment[poem_id]" value="<%= poem.id %>">
+  <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
+  <input type="text" name="comment[name]" placeholder="comment name">
+  <textarea rows=2 cols=50 name="comment[body]" placeholder="comment body"></textarea>
+  <input type="submit" value="create comment">
+</form>
